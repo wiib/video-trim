@@ -9,6 +9,19 @@
 
   &Child {
     max-width: 50%;
+    margin: 0 1ch;
     flex-shrink: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    &Child {
+      max-width: 100%;
+      margin: 0;
+    }
   }
 }

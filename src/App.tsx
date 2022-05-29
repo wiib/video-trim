@@ -8,6 +8,7 @@ const ffmpeg = createFFmpeg({ log: true });
 
 const App: Component = () => {
   const [ready, setReady] = createSignal<boolean>(false);
+
   const [video, setVideo] = createSignal<null | File>(null);
   const [videoOut, setVideoOut] = createSignal<null | string>(null);
 
@@ -69,14 +70,21 @@ const App: Component = () => {
         <p>This SolidJS + FFmpeg.wasm app lets you trim videos in-browser.</p>
         <p>
           The output is the trimmed video, re-encoded to h264/aac as to avoid video/audio desync.
-          Therefore, it's very slow for lenghts over 10 seconds.
+          Therefore, it's very slow but produces a good result nonetheless.
         </p>
         <Show when={ready()} fallback={<h2>Loading FFmpeg...</h2>}>
           <div class={styles.container}>
-            <section class={styles.containerChild} style="margin-right: 2ch;">
+            <section class={styles.containerChild}>
               <h2>Input</h2>
               <Show when={video()}>
-                <video controls ref={videoRef} src={URL.createObjectURL(video() as Blob)} />
+                <video
+                  controls
+                  ref={videoRef}
+                  src={URL.createObjectURL(video() as Blob)}
+                  onLoadedMetadata={(e) => {
+                    setEndTIme(e.currentTarget.duration);
+                  }}
+                />
               </Show>
               <input
                 type="file"
@@ -98,7 +106,7 @@ const App: Component = () => {
                 Trim
               </button>
             </section>
-            <section class={styles.containerChild} style="margin-left: 2ch;">
+            <section class={styles.containerChild}>
               <h2>Output</h2>
               <Show when={videoOut()} fallback={<p>Your video will appear here.</p>}>
                 <video controls src={videoOut() ?? undefined} />
