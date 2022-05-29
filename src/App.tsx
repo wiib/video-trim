@@ -1,7 +1,7 @@
 import { Component, createSignal, onMount } from 'solid-js';
 import NavBar from './components/NavBar';
 
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 const ffmpeg = createFFmpeg({ log: true });

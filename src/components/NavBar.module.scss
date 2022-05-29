@@ -4,16 +4,16 @@
 
   background-color: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 30%);
-}
 
-.NavBarList {
+  &List {
     list-style: none;
     
     padding: 0;
     margin: 0;
-}
 
-.NavBarListItem {
-    display: inline-block;
-    margin: 0 3ch 0 0;
+    &Item {
+      display: inline-block;
+      margin: 0 3ch 0 0;
+    }
+  }
 }

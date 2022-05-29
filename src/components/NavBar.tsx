@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 
-import styles from "./NavBar.module.css";
+import styles from "./NavBar.module.scss";
 
 const NavBar: Component = () => {
   return (
