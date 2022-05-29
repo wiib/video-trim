@@ -3,8 +3,14 @@
 # abort on errors
 set -e
 
+# remove dist dir
+rm -rf dist
+
 # build
 npm run build
+
+# copy coi-serviceworker
+cp "./coi-serviceworker.min.js" "./dist/coi-serviceworker.min.js"
 
 # navigate into the build output directory
 cd dist
