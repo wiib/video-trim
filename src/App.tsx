@@ -31,12 +31,12 @@ const App: Component = () => {
 
     // Run the FFmpeg command to trim the video and encode
     // prettier-ignore
-    await ffmpeg.run(
-      '-ss', `${start}`,
+    await ffmpeg.run(      
       '-i', 'in.mp4',
-      '-t', `${end - start}`,
-      '-c:a', 'aac',
+      '-ss', `${start}`,
+      '-to', `${end}`,
       '-c:v', 'libx264',
+      '-c:a', 'aac',
       'out.mp4'
     );
 
