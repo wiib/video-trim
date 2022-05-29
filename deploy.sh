@@ -6,6 +6,9 @@ set -e
 # build
 npm run build
 
+# copy coi-serviceworker
+cp "./coi-serviceworker.min.js" "./dist/coi-serviceworker.min.js"
+
 # navigate into the build output directory
 cd dist
 
