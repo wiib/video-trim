@@ -1,7 +1,7 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "video-trim",
+  "version": "1.0.0",
+  "description": "Trim videos in-browser via FFmpeg.wasm",
   "scripts": {
     "start": "vite",
     "dev": "vite",
