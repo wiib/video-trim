@@ -4,6 +4,31 @@
 
 video {
   display: block;
+  max-width: 100%;
+}
+
+button {
+  display: inline-block;
+  margin: 0;
+  margin-right: 1rem;
+  padding: .5rem 1rem;
+  border: none;
+  background: hsl(0, 0%, 80%);
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background: hsl(0, 0%, 75%);
+}
+
+button:focus {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+button:active {
+  transform: scale(0.99);
 }
 
 .material-icons {

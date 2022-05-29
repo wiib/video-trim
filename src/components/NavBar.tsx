@@ -4,12 +4,12 @@ import styles from "./NavBar.module.scss";
 
 const NavBar: Component = () => {
   return (
-    <div class={styles.NavBar}>
+    <nav class={styles.NavBar}>
+      <span class="material-icons">home</span>
       <ul class={styles.NavBarList}>
-        <li class={styles.NavBarListItem}><span class="material-icons">home</span></li>
         <li class={styles.NavBarListItem}>video-trim</li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

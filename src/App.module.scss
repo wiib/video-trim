@@ -1,8 +1,14 @@
 .App {
-  width: 100vw;
-  height: 100vh;
-
   &Content {
     padding: 1ch 3ch;
+  }
+}
+
+.container {
+  display: flex;
+
+  &Child {
+    max-width: 50%;
+    flex-shrink: 1;
   }
 }
