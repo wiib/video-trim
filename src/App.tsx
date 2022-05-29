@@ -66,7 +66,7 @@ const App: Component = () => {
     <div class={styles.App}>
       <NavBar />
       <main class={styles.AppContent}>
-        <p>This SolidJS + FFmpeg.wasm applcation lets you trim videos in-browser.</p>
+        <p>This SolidJS + FFmpeg.wasm app lets you trim videos in-browser.</p>
         <p>
           The output is the trimmed video, re-encoded to h264/aac as to avoid video/audio desync.
           Therefore, it's very slow for lenghts over 10 seconds.
