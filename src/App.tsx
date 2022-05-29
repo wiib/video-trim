@@ -15,6 +15,8 @@ const App: Component = () => {
   const [startTime, setStartTime] = createSignal<number>(0);
   const [endTime, setEndTIme] = createSignal<number>(0);
 
+  const [workDuration, setWorkDuration] = createSignal<number>(0);
+
   let videoRef: undefined | HTMLVideoElement;
 
   /**
@@ -25,6 +27,9 @@ const App: Component = () => {
   const trimVideo = async (start: number, end: number) => {
     // Hide the previous output
     setVideoOut(null);
+
+    // Calculate the time taken to encode
+    const timeStart = Date.now();
 
     // Write the input file to the WASM virtual file system
     ffmpeg.FS('writeFile', 'in.mp4', await fetchFile(video()));
@@ -39,6 +44,9 @@ const App: Component = () => {
       '-c:a', 'aac',
       'out.mp4'
     );
+
+    const timeEnd = Date.now();
+    setWorkDuration(timeEnd - timeStart);
 
     // Read the output file from the WASM virtual file system
     const data = ffmpeg.FS('readFile', 'out.mp4');
@@ -110,6 +118,10 @@ const App: Component = () => {
               <h2>Output</h2>
               <Show when={videoOut()} fallback={<p>Your video will appear here.</p>}>
                 <video controls src={videoOut() ?? undefined} />
+                <p>Took {workDuration() / 1000} seconds.</p>
+                <a href={videoOut() ?? "#"} download={video()!.name + "-trimmed.mp4"}>
+                  <button type="button">Download</button>
+                </a>
               </Show>
             </section>
           </div>
