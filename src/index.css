@@ -1,0 +1,11 @@
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+video {
+  display: block;
+}
+
+.material-icons {
+  vertical-align: bottom;
+}
